@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="bs">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Fun Zone</title>
+
+    <link rel="stylesheet" href="izgled.css">
+</head>
+
+<body>
+
+<header>
+
+    <a href="index.html">
+        <img src="slike/logo-ipi.png" alt="IPI Akademija">
+    </a>
+
+</header>
+
+<nav>
+    <ul>
+
+        <li>
+            <a href="index.html">O kursevima</a>
+        </li>
+
+        <li>
+            <a href="popis.html">Popis kurseva</a>
+        </li>
+
+        <li>
+            <a href="raspored.html">Raspored kurseva</a>
+        </li>
+
+        <li class="dropdown">
+            <a href="studentfunzone.html">Student Fun Zone</a>
+
+            <ul class="submenu">
+
+                <li>
+                    <a href="bingo.html" target="contentFrame">
+                        Bingo
+                    </a>
+                </li>
+
+                <li>
+                    <a href="kviz/kviz.html" target="contentFrame">
+                        Kviz
+                    </a>
+                </li>
+
+                <li>
+                    <a href="whiteboard/whiteboard.html" target="contentFrame">
+                        Interaktivni Whiteboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="visionboard/visionboard.html" target="contentFrame">
+                        Visual Board
+                    </a>
+                </li>
+
+                <li>
+                    <a href="kanbanboard/kanbanboard.html" target="contentFrame">
+                        Kanban Board
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+        <li>
+            <a href="kontakt.html">Kontakt</a>
+        </li>
+
+    </ul>
+</nav>
+
+<article>
+
+    <h2>Student Fun Zone</h2>
+
+    <p>
+        Dobrodošli u Student Fun Zone.
+    </p>
+
+    <p>
+        Odaberite jednu od dostupnih aktivnosti iz menija:
+    </p>
+
+    <iframe
+        id="contentFrame"
+        name="contentFrame"
+        src="about:blank"
+        title="Student Fun Zone">
+    </iframe>
+
+</article>
+
+<footer>
+    &copy; Internacionalna poslovno-informaciona akademija Tuzla
+</footer>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const game = params.get("game");
+
+const pages = {
+    bingo: "bingo.html",
+    kviz: "kviz/kviz.html",
+    whiteboard: "whiteboard/whiteboard.html",
+    visionboard: "visionboard/visionboard.html",
+    kanbanboard: "kanbanboard/kanbanboard.html"
+};
+
+if (game && pages[game]) {
+    document.getElementById("contentFrame").src = pages[game];
+}
+</script>
+
+
+</body>
+</html>
